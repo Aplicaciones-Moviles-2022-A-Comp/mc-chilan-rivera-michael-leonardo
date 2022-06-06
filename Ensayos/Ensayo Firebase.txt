@@ -1,0 +1,14 @@
+Autenticación facil para usuarios y programadores.
+La mayoría de aplicaciones requieren de la identidad del usuario para brindar una una experiencia personalizada y proteger sus datos.
+Compatible con diversas formas de autenticación para los usuarios.
+Si se require realizar autenticación se lo puede hacer mediante correo electrónico, programando esta alternativa-
+Firebase.off incluye funcionalidades para proveedores externos como Facebook, Twitter, Github y Google.
+Se puede integrar con un sistema de cuentas existente.
+Se puede elegir la presentación del acceso al usuario, construyendo una interfaz propia o usar una UI de código abierto personalizable.
+Sin importar el método, cuando el usuario autentica suceden tres cosas:
+	.-La información del usuario se envía al dispositivo mediante devoluciones de llamada, permitiendo personalizar la experiencia en la aplicación para un usuario específico.
+	.-La información del usuario tiene un ID único que no se repite entre distintos proveedores y es siempre el mismo para un usuario autenticado específico. Este ID se usa para identificar al usuario y las partes del sistema de back-end a las que tiene acceso autorizado
+	.-Firebase administra la sesión del usuario para que continúe abierta tras reiniciar el navegador o la aplicación 
+Funciona en Android, iOS y en la Web.
+Firebase.off permite concetrarse en los usuarios en lugar de la infraestructura de acceso.
+	
