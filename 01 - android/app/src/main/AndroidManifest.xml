@@ -13,11 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Movcompmlcr2022a"
         tools:targetApi="31">
+        <activity
+            android:name=".ACicloVida"
+            android:exported="false"
+            android:label="@string/title_activity_aciclo_vida"
+            android:theme="@style/Theme.Movcompmlcr2022a.NoActionBar" />
 
-        <meta-data android:name="io.sentry.dsn" android:value="https://f004f0e39b2743e38cfefdaa9deb8fa1@o1255425.ingest.sentry.io/6423966" />
-        <!-- Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
-           We recommend adjusting this value in production. -->
-        <meta-data android:name="io.sentry.traces.sample-rate" android:value="1.0" />
+        <meta-data
+            android:name="io.sentry.dsn"
+            android:value="https://f004f0e39b2743e38cfefdaa9deb8fa1@o1255425.ingest.sentry.io/6423966" />
+        <!--
+ Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+           We recommend adjusting this value in production.
+        -->
+        <meta-data
+            android:name="io.sentry.traces.sample-rate"
+            android:value="1.0" />
 
         <activity
             android:name=".MainActivity"
