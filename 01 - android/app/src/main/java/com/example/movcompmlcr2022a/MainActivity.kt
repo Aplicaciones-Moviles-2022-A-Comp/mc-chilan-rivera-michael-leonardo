@@ -18,10 +18,12 @@ class MainActivity : AppCompatActivity() {
         botonCicloVida.setOnClickListener{
             irActividad(ACicloVida::class.java)
         }
-        val botonContador = findViewById<Button>(R.id.btn_contador)
-        botonContador.setOnClickListener{
-            irActividad(ACicloVida::class.java)
+
+        val botonContador = findViewById<Button>(R.id.btn_ir_contador)
+        botonContador.setOnClickListener {
+            irActividad(Contador::class.java)
         }
+
         val botonListView = findViewById<Button>(R.id.btn_ir_list_view)
         botonListView.setOnClickListener {
             irActividad(BListView::class.java)

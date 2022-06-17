@@ -16,7 +16,6 @@ import com.example.movcompmlcr2022a.databinding.ActivityAcicloVidaBinding
 class ACicloVida : AppCompatActivity() {
 
     var textoGlobal= ""
-    var total = 0
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityAcicloVidaBinding
@@ -37,18 +36,8 @@ class ACicloVida : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-        val botonContador = findViewById<Button>(R.id.btn_contador)
-        //botonContador.text = "0"
-        botonContador.setOnClickListener {
-            aumentarTotal()
-        }
-        //mostrarSnackbar("OnCreate")
-    }
 
-    fun aumentarTotal() {
-        total = total + 1
-        val textViewCicloVida = findViewById<TextView>(R.id.txt_contador)
-        textViewCicloVida.text = total.toString()
+        mostrarSnackbar("OnCreate")
     }
 
     fun mostrarSnackbar (texto:String) {
@@ -91,18 +80,17 @@ class ACicloVida : AppCompatActivity() {
         outState.run {
             // GUARDAR LAS VARIABLES
             // SOLO PRIMITIVOS
-            putInt("totalGuardado", total)
+            putString("textoGuardado", textoGlobal)
         }
         super.onSaveInstanceState(outState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
-        val totalRecuperado:Int? = savedInstanceState.getInt("totalGuardado")
-        if(totalRecuperado != null){
-            this.total = totalRecuperado
-            val txvCicloVida = findViewById<TextView>(R.id.txt_contador)
-            txvCicloVida.text = total.toString()
+        val textoRecuperado:String? = savedInstanceState.getString("textoGuardado")
+        if(textoRecuperado != null){
+            mostrarSnackbar(textoRecuperado)
+            textoGlobal = textoRecuperado
         }
     }
 }

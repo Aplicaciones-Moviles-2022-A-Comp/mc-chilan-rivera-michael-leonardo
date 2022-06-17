@@ -3,11 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/michael.chilan/Desktop/AplicacionesMoviles/mc-chilan-rivera-michael-leonardo/01 - android/app/src/main/res/layout/activity_aciclo_vida.xml" value="0.22" />
+        <entry key="..\:/Users/michael.chilan/Desktop/AplicacionesMoviles/mc-chilan-rivera-michael-leonardo/01 - android/app/src/main/res/layout/activity_aciclo_vida.xml" value="0.25" />
         <entry key="..\:/Users/michael.chilan/Desktop/AplicacionesMoviles/mc-chilan-rivera-michael-leonardo/01 - android/app/src/main/res/layout/activity_blist_view.xml" value="0.25" />
         <entry key="..\:/Users/michael.chilan/Desktop/AplicacionesMoviles/mc-chilan-rivera-michael-leonardo/01 - android/app/src/main/res/layout/activity_blist_view_s.xml" value="0.18229166666666666" />
         <entry key="..\:/Users/michael.chilan/Desktop/AplicacionesMoviles/mc-chilan-rivera-michael-leonardo/01 - android/app/src/main/res/layout/activity_cont_numero.xml" value="0.18229166666666666" />
-        <entry key="..\:/Users/michael.chilan/Desktop/AplicacionesMoviles/mc-chilan-rivera-michael-leonardo/01 - android/app/src/main/res/layout/activity_main.xml" value="0.67" />
+        <entry key="..\:/Users/michael.chilan/Desktop/AplicacionesMoviles/mc-chilan-rivera-michael-leonardo/01 - android/app/src/main/res/layout/activity_contador.xml" value="0.5" />
+        <entry key="..\:/Users/michael.chilan/Desktop/AplicacionesMoviles/mc-chilan-rivera-michael-leonardo/01 - android/app/src/main/res/layout/activity_main.xml" value="0.75" />
+        <entry key="..\:/Users/michael.chilan/Desktop/AplicacionesMoviles/mc-chilan-rivera-michael-leonardo/01 - android/app/src/main/res/layout/content_aciclo_vida.xml" value="0.22" />
       </map>
     </option>
   </component>

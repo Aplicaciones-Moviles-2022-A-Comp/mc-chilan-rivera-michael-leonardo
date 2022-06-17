@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">movcompmlcr2022a</string>
     <string name="condicion">Condicion 1</string>
-    <color name="color_texto" translatable="false">#FF03DAC5</color>
+    <color name="color_texto" translatable="false">#FF3700B3</color>
     <color name="color_fondo" translatable="false">#FF018786</color>
 
     <string name="title_activity_aciclo_vida">ACicloVida</string>
