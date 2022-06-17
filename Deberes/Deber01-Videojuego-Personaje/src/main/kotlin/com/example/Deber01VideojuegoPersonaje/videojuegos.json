@@ -1,0 +1,64 @@
+{
+  "id_videojuego": 5,
+  "fecha_lanzamiento": "Nov 12, 2007",
+  "apto_todo_publico": false,
+  "nombre": "Assassin´s Creed 2",
+  "horas_juego_historia": 15,
+  "precio": 5.5
+}
+{
+  "id_videojuego": 7,
+  "fecha_lanzamiento": "Nov 12, 2007",
+  "apto_todo_publico": false,
+  "nombre": "Assassin´s Creed 3",
+  "horas_juego_historia": 15,
+  "precio": 5.5
+}
+{
+  "id_videojuego": 8,
+  "fecha_lanzamiento": "Nov 12, 2007",
+  "apto_todo_publico": false,
+  "nombre": "Assassin´s Creed BrotherHood",
+  "horas_juego_historia": 15,
+  "precio": 5.5
+}
+{
+  "id_videojuego": 9,
+  "fecha_lanzamiento": "Nov 12, 2007",
+  "apto_todo_publico": false,
+  "nombre": "Assassin´s Creed Revelations",
+  "horas_juego_historia": 15,
+  "precio": 5.5
+}
+{
+  "id_videojuego": 10,
+  "fecha_lanzamiento": "Nov 12, 2007",
+  "apto_todo_publico": false,
+  "nombre": "Assassin´s Creed 4",
+  "horas_juego_historia": 15,
+  "precio": 5.5
+}
+{
+  "id_videojuego": 11,
+  "fecha_lanzamiento": "Nov 12, 2007",
+  "apto_todo_publico": false,
+  "nombre": "Assassin´s Creed 5",
+  "horas_juego_historia": 15,
+  "precio": 5.5
+}
+{
+  "id_videojuego": 12,
+  "fecha_lanzamiento": "Nov 12, 2007",
+  "apto_todo_publico": false,
+  "nombre": "Assassin´s Creed 6",
+  "horas_juego_historia": 15,
+  "precio": 5.5
+}
+{
+  "id_videojuego": 13,
+  "fecha_lanzamiento": "Nov 12, 2007",
+  "apto_todo_publico": false,
+  "nombre": "Assassin´s Creed 7",
+  "horas_juego_historia": 15,
+  "precio": 5.5
+}

@@ -22,14 +22,17 @@ class PersonajeController {
     @PostMapping("/crearActualizar")
     fun crearActualizarPersonaje(@RequestBody personaje: Personaje) : ResponseEntity<Personaje> {
         var obj = personajeServiceAPI.crearActualizar(personaje)
+        personajeServiceAPI.guardar("personajes.json", personaje)
         return ResponseEntity<Personaje>(personaje, HttpStatus.OK)
     }
 
     @GetMapping("/eliminar/{id}")
     fun eliminarPersonaje(@PathVariable id: Long) : ResponseEntity<Personaje> {
         val personaje = personajeServiceAPI.get(id)
+
         if (personaje != null) {
             personajeServiceAPI.eliminar(id)
+            personajeServiceAPI.guardar("personajes.json", personaje)
         } else {
             return ResponseEntity<Personaje>(HttpStatus.NO_CONTENT)
         }

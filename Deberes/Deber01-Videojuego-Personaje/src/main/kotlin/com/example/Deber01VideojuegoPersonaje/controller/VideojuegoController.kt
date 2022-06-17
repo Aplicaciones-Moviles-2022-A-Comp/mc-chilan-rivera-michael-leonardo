@@ -28,6 +28,7 @@ class VideojuegoController {
     @PostMapping("/crearActualizar")
     fun crearActualizarVideojuego(@RequestBody videojuego: Videojuego) : ResponseEntity<Videojuego> {
         var obj = videojuegoServiceAPI.crearActualizar(videojuego)
+        videojuegoServiceAPI.guardar("videojuegos.json", videojuego)
         return ResponseEntity<Videojuego>(videojuego, HttpStatus.OK)
     }
 
@@ -36,6 +37,7 @@ class VideojuegoController {
         val videojuego = videojuegoServiceAPI.get(id)
         if (videojuego != null) {
             videojuegoServiceAPI.eliminar(id)
+            videojuegoServiceAPI.guardar("videojuegos.json", videojuego)
         } else {
             return ResponseEntity<Videojuego>(HttpStatus.NO_CONTENT)
         }

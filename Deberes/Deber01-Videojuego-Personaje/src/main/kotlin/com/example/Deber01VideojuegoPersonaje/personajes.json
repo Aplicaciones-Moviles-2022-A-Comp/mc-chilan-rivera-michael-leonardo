@@ -1,0 +1,18 @@
+{
+  "id_personaje": 5,
+  "id_videojuego": 5,
+  "fecha_nacimiento": "Jun 25, 1997",
+  "personaje_principal": true,
+  "nombre": "Ezio",
+  "edad_inicial": 23,
+  "altura": 1.76
+}
+{
+  "id_personaje": 6,
+  "id_videojuego": 5,
+  "fecha_nacimiento": "Jun 25, 1997",
+  "personaje_principal": true,
+  "nombre": "Ezio A",
+  "edad_inicial": 23,
+  "altura": 1.76
+}

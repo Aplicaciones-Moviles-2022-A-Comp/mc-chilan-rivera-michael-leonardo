@@ -1,0 +1,2 @@
+Videojuego(id_videojuego=5, fecha_lanzamiento=2007-11-12, apto_todo_publico=false, nombre=Assassin´s Creed 2, horas_juego_historia=15, precio=5.5)
+Videojuego(id_videojuego=7, fecha_lanzamiento=2007-11-12, apto_todo_publico=false, nombre=Assassin´s Creed 3, horas_juego_historia=15, precio=5.5)
