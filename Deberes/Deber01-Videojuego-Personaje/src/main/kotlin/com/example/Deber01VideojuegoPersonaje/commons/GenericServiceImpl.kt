@@ -1,6 +1,5 @@
 package com.example.Deber01VideojuegoPersonaje.commons
 
-import com.example.Deber01VideojuegoPersonaje.model.Videojuego
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -28,8 +27,6 @@ abstract class GenericServiceImpl<T, ID : Serializable?> : GenericServiceAPI<T, 
     override fun guardar(nombre_archivo: String, entity: T) {
         val file = "C:\\Users\\michael.chilan\\Desktop\\AplicacionesMoviles\\mc-chilan-rivera-michael-leonardo\\Deberes\\Deber01-Videojuego-Personaje\\src\\main\\kotlin\\com\\example\\Deber01VideojuegoPersonaje\\"
         val my_file = File(file + nombre_archivo)
-        //val gsonPretty = GsonBuilder().setPrettyPrinting().create()
-        //val jsonTutsListPretty: String = gsonPretty.toJson(entity)
 
         my_file.printWriter().use { out ->
             obtenerTodo?.forEach {

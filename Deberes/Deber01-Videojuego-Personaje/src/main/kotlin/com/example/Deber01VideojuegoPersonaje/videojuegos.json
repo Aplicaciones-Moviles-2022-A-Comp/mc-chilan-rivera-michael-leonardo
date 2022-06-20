@@ -23,14 +23,6 @@
   "precio": 5.5
 }
 {
-  "id_videojuego": 9,
-  "fecha_lanzamiento": "Nov 12, 2007",
-  "apto_todo_publico": false,
-  "nombre": "Assassin´s Creed Revelations",
-  "horas_juego_historia": 15,
-  "precio": 5.5
-}
-{
   "id_videojuego": 10,
   "fecha_lanzamiento": "Nov 12, 2007",
   "apto_todo_publico": false,

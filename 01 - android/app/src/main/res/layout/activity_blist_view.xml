@@ -8,11 +8,12 @@
 
     <ListView
         android:id="@+id/lv_list_view"
-        android:layout_width="288dp"
-        android:layout_height="218dp"
-        android:layout_marginBottom="112dp"
+        android:layout_width="239dp"
+        android:layout_height="207dp"
+        android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_añadir_list_view"
         app:layout_constraintEnd_toEndOf="@+id/btn_añadir_list_view"
+        app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="@+id/btn_añadir_list_view" />
 
     <Button
@@ -22,8 +23,8 @@
         android:text="Añadir"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintHorizontal_bias="0.543"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.726" />
+        app:layout_constraintVertical_bias="0.894" />
 </androidx.constraintlayout.widget.ConstraintLayout>
