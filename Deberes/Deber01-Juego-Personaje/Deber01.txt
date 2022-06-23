@@ -1,0 +1,19 @@
+[
+  {
+    "fechaLanzamiento": "Nov 13, 2007, 12:00:00 AM",
+    "aptoTodoPublico": false,
+    "nombre": "Assassins Creed",
+    "horasJuegoHistoria": 15,
+    "precio": 23.5,
+    "personajes": [
+      {
+        "fechaNacimiento": "Mar 13, 1987, 12:00:00 AM",
+        "personajePrincipal": true,
+        "nombre": "Desmond Miles",
+        "nombreJuego": "Assassins Creed",
+        "edadInicial": 25,
+        "altura": 1.7
+      }
+    ]
+  }
+]

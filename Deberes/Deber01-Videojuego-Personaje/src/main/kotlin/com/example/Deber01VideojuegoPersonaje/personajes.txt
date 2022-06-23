@@ -1,1 +1,0 @@
-Personaje(id_personaje=5, id_videojuego=5, fecha_nacimiento=1997-06-25, personaje_principal=true, nombre=Ezio, edad_inicial=23, altura=1.76)
