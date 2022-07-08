@@ -14,11 +14,22 @@
         android:theme="@style/Theme.Movcompmlcr2022a"
         tools:targetApi="31">
         <activity
+            android:name=".CIntentExplicitoParametros"
+            android:exported="false" />
+        <activity
             android:name=".Contador"
             android:exported="false" />
         <activity
             android:name=".BListView"
-            android:exported="false" />
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ACicloVida"
             android:exported="false"
