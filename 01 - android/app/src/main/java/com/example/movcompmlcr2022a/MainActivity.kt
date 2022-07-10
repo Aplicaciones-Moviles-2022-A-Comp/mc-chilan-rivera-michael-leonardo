@@ -55,6 +55,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // Base de datos sqlite
+        EBaseDeDatos.TablaEntrenador = ESqliteHelperEntrenador(this)
         //Sentry.captureMessage("testing SDK setup", SentryLevel.INFO)
         Sentry.captureMessage("testing SDK setup", SentryLevel.INFO)
 
@@ -75,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
         val botonIntent = findViewById<Button>(R.id.btn_intent)
         botonIntent.setOnClickListener {
-            irActividad(CIntentExplicitoParametros::class.java)
+            abrirActividadConParametros(CIntentExplicitoParametros::class.java)
         }
 
         val botonIntentImplicito = findViewById<Button>(R.id.btn_ir_intent_implicito)
@@ -87,18 +89,30 @@ class MainActivity : AppCompatActivity() {
             contenidoIntentImplicito.launch(intentConRespuesta)
             //ActivityResultContracts.StartActivityForResult(intentConRespuesta, CODIGO_RESPUESTA_INTENT_EXPLICITO)
         }
+
+        val botonSqlite = findViewById<Button>(R.id.btn_sqlite)
+        botonSqlite.setOnClickListener {
+            irActividad(ECrudEntrenador::class.java)
+        }
     }
 
     fun irActividad (
         clase: Class<*>
     ){
+        val intent = Intent(this, clase)
+        startActivity(intent)
+    }
+
+    fun abrirActividadConParametros(
+        clase: Class<*>,
+    ) {
         val intentExplicito = Intent(this, clase)
         //startActivity(intent) // esta función se encuentra dentro de la clase de la cual se esta heredando (en este caso "AppCompatActivity()")
         // Enviar parámetros (solamente variables primitivas)
         intentExplicito.putExtra("nombre", "Michael")
         intentExplicito.putExtra("apellido", "Chilán")
         intentExplicito.putExtra("edad", 25)
-        intentExplicito.putExtra("entrenadorPrincipal", BEntrenador("Michael", "Paleta"))
+        intentExplicito.putExtra("entrenadorPrincipal", BEntrenador(1, "Michael", "Paleta"))
 
         contenidoIntentExplicito.launch(intentExplicito)
         //startActivityForResult(intentExplicito, CODIGO_RESPUESTA_INTENT_EXPLICITO) // 401
