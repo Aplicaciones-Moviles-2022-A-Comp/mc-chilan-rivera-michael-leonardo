@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
+    <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc543acc-3494-406f-a284-f612eb0f2a66" name="Changes" comment="" />
@@ -34,14 +34,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/michael.chilan/Downloads/gson-2.8.5.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "AndroidSdkUpdater"
+    "WebServerToolWindowFactoryState": "false"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -72,6 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1655956347885</updated>
       <workItem from="1655956350596" duration="7991000" />
+      <workItem from="1657762120489" duration="3796000" />
     </task>
     <servers />
   </component>

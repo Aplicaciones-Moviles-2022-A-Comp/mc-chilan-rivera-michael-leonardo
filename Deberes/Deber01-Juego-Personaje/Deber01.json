@@ -1,18 +1,43 @@
 [
   {
-    "fechaLanzamiento": "Nov 13, 2007, 12:00:00 AM",
-    "aptoTodoPublico": false,
-    "nombre": "Assassins Creed",
-    "horasJuegoHistoria": 15,
-    "precio": 23.5,
+    "fechaLanzamiento": "Dec 4, 2022, 12:00:00 AM",
+    "aptoTodoPublico": true,
+    "nombre": "Donkey Kong Country",
+    "horasJuegoHistoria": 100,
+    "precio": 12.23,
+    "personajes": []
+  },
+  {
+    "fechaLanzamiento": "Dec 26, 2000, 12:00:00 AM",
+    "aptoTodoPublico": true,
+    "nombre": "Mario Party",
+    "horasJuegoHistoria": 250,
+    "precio": 12.54,
     "personajes": [
       {
-        "fechaNacimiento": "Mar 13, 1987, 12:00:00 AM",
+        "fechaNacimiento": "Jun 19, 2010, 12:00:00 AM",
+        "personajePrincipal": false,
+        "nombre": "Koopa",
+        "nombreJuego": "Mario Party",
+        "edadInicial": 8,
+        "altura": 1.45
+      }
+    ]
+  },
+  {
+    "fechaLanzamiento": "Jul 13, 2022, 12:00:00 AM",
+    "aptoTodoPublico": true,
+    "nombre": "Mario Kart 7",
+    "horasJuegoHistoria": 200,
+    "precio": 12.12,
+    "personajes": [
+      {
+        "fechaNacimiento": "Dec 12, 2000, 12:00:00 AM",
         "personajePrincipal": true,
-        "nombre": "Desmond Miles",
-        "nombreJuego": "Assassins Creed",
-        "edadInicial": 25,
-        "altura": 1.7
+        "nombre": "Mario bros",
+        "nombreJuego": "Mario Kart 7",
+        "edadInicial": 29,
+        "altura": 1.79
       }
     ]
   }
