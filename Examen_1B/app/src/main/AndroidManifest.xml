@@ -13,8 +13,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Examen_1B"
         tools:targetApi="31">
+
         <activity
-            android:name=".Juego"
+            android:name=".ActualizarJuego"
+            android:exported="false" />
+
+        <activity
+            android:name=".ActualizarPersonaje"
+            android:exported="false" />
+
+        <activity
+            android:name=".CrearJuego"
+            android:exported="false" />
+
+        <activity
+            android:name=".CrearPersonaje"
+            android:exported="false" />
+
+        <activity
+            android:name=".InterfazJuego"
+            android:exported="false" />
+
+        <activity
+            android:name=".InterfazPersonaje"
             android:exported="false" />
 
         <meta-data

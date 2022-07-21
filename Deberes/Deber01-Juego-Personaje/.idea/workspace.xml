@@ -32,11 +32,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
@@ -66,6 +66,7 @@
       <updated>1655956347885</updated>
       <workItem from="1655956350596" duration="7991000" />
       <workItem from="1657762120489" duration="3796000" />
+      <workItem from="1658286231182" duration="662000" />
     </task>
     <servers />
   </component>

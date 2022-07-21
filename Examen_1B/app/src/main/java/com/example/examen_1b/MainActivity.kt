@@ -16,14 +16,8 @@ class MainActivity : AppCompatActivity() {
 
         val botonVerJuegos = findViewById<Button>(R.id.btn_ver_juegos)
         botonVerJuegos.setOnClickListener {
-            irActividad(Juego::class.java)
+            val intent = Intent(this, InterfazJuego::class.java)
+            startActivity(intent)
         }
-    }
-
-    fun irActividad (
-        clase: Class<*>
-    ){
-        val intent = Intent(this, clase)
-        startActivity(intent)
     }
 }
