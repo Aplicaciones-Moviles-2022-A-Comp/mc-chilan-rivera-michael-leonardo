@@ -16,10 +16,10 @@
         android:textColor="@color/color_texto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
+        app:layout_constraintHorizontal_bias="0.328"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.522" />
+        app:layout_constraintVertical_bias="0.583" />
 
     <Button
         android:id="@+id/btn_ciclo_vida"
@@ -85,6 +85,17 @@
         app:layout_constraintEnd_toEndOf="@+id/btn_intent"
         app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toStartOf="@+id/btn_intent" />
+
+    <Button
+        android:id="@+id/btn_ir_firebase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="FIREBASE"
+        app:layout_constraintBottom_toTopOf="@+id/btn_sqlite"
+        app:layout_constraintEnd_toEndOf="@+id/btn_sqlite"
+        app:layout_constraintHorizontal_bias="0.705"
+        app:layout_constraintStart_toStartOf="@+id/btn_sqlite" />
 
     <Button
         android:id="@+id/btn_recycler_view"

@@ -8,11 +8,9 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.util.Log
 import android.widget.Button
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import io.sentry.Sentry
 import io.sentry.SentryLevel
-import java.net.URI
 
 class MainActivity : AppCompatActivity() {
 
@@ -98,6 +96,11 @@ class MainActivity : AppCompatActivity() {
         val botonRecyclerView = findViewById<Button>(R.id.btn_recycler_view)
         botonRecyclerView.setOnClickListener {
             irActividad(GRecyclerView::class.java)
+        }
+
+        val botonIrFirebase = findViewById<Button>(R.id.btn_ir_firebase)
+        botonIrFirebase.setOnClickListener {
+            irActividad(HFirebaseUIAuth::class.java)
         }
     }
 
