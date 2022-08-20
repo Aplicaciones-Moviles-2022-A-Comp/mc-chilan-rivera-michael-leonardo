@@ -33,10 +33,10 @@
         android:layout_height="282dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.407" />
+        app:layout_constraintVertical_bias="0.44" />
 
     <Button
         android:id="@+id/btn_fs_odoc"
@@ -51,12 +51,34 @@
 
     <Button
         android:id="@+id/btn_fs_ind_comp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="143dp"
+        android:layout_height="43dp"
         android:layout_marginTop="36dp"
         android:text="Indice Compuesto"
         app:layout_constraintEnd_toEndOf="@+id/btn_fs_datos_prueba"
         app:layout_constraintHorizontal_bias="0.083"
         app:layout_constraintStart_toStartOf="@+id/btn_fs_datos_prueba"
         app:layout_constraintTop_toBottomOf="@+id/btn_fs_datos_prueba" />
+
+    <Button
+        android:id="@+id/btn_fs_crear"
+        android:layout_width="79dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="16dp"
+        android:text="Crear"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_fs_ind_comp"
+        app:layout_constraintStart_toEndOf="@+id/btn_fs_ind_comp"
+        app:layout_constraintTop_toTopOf="@+id/btn_fs_ind_comp"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/btn_fs_eliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Eliminar"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_fs_crear"
+        app:layout_constraintStart_toEndOf="@+id/btn_fs_crear"
+        app:layout_constraintTop_toTopOf="@+id/btn_fs_crear"
+        app:layout_constraintVertical_bias="0.333" />
 </androidx.constraintlayout.widget.ConstraintLayout>
