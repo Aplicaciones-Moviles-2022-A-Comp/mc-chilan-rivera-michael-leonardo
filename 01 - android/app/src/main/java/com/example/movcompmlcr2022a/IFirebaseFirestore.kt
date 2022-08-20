@@ -5,16 +5,18 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class IFirebaseFirestore : AppCompatActivity() {
 
-    var arreglo: ArrayList<ICitiesDto> = arrayListOf()
+    val arreglo: ArrayList<ICitiesDto> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_ifirebase_firestore)
         val listView = findViewById<ListView>(R.id.lv_firestore)
         val adaptador = ArrayAdapter(
             this, // Contexto
@@ -24,7 +26,6 @@ class IFirebaseFirestore : AppCompatActivity() {
         listView.adapter = adaptador
         adaptador.notifyDataSetChanged()
 
-        setContentView(R.layout.activity_ifirebase_firestore)
         val botonDatosPrueba = findViewById<Button>(R.id.btn_fs_datos_prueba)
         botonDatosPrueba.setOnClickListener { crearDatosPrueba() }
         val botonOrderBy = findViewById<Button>(R.id.btn_fs_order_by)
@@ -32,49 +33,77 @@ class IFirebaseFirestore : AppCompatActivity() {
         val citiesRefUnico = db
             .collection("cities")
         botonOrderBy.setOnClickListener {
+            limpiarArreglo()
+            adaptador.notifyDataSetChanged()
             citiesRefUnico
                 .orderBy("population") // NOS USAMOS CON DOCUENT xq en DOCUMENT nos devuelve 1
                 .get()
                 .addOnSuccessListener {
-                    arreglo = arrayListOf()
                     for (ciudad in it){
-                        anadirArregloCiudad(arreglo, ciudad)
+                        anadirAArregloCiudad(arreglo, ciudad, adaptador)
                     }
-                    adaptador.notifyDataSetChanged()
                 }
         }
         val botonObtenerDocumento = findViewById<Button>(R.id.btn_fs_odoc)
         botonObtenerDocumento.setOnClickListener {
+            limpiarArreglo()
+            adaptador.notifyDataSetChanged()
             citiesRefUnico
                 .document("BJ")
                 .get()
                 .addOnSuccessListener {
-                    arreglo = arrayListOf()
                     arreglo.add(
                         ICitiesDto(
-                            it.get("name") as String?, it.get("state") as String?,
-                            it.get("country") as String?, it.get("capital") as Boolean?,
-                            it.get("population") as Integer?, it.get("regions") as ArrayList<String>
+                            it.data?.get("name") as String?,
+                            it.data?.get("state") as String?,
+                            it.data?.get("country") as String?,
+                            it.data?.get("capital") as Boolean?,
+                            it.data?.get("population") as Long?,
+                            it.data?.get("regions") as ArrayList<String>
                         )
                     )
                     adaptador.notifyDataSetChanged()
                 }
         }
+        val botonFirebaseIndiceCompuesto = findViewById<Button>(R.id.btn_fs_ind_comp)
+        botonFirebaseIndiceCompuesto.setOnClickListener {
+            limpiarArreglo()
+            adaptador.notifyDataSetChanged()
+            citiesRefUnico
+                .whereEqualTo("capital", false)
+                .whereLessThanOrEqualTo("population", 4000000)
+                .orderBy("population", Query.Direction.DESCENDING)
+                .get()
+                .addOnSuccessListener {
+                    for (ciudad in it) {
+                        anadirAArregloCiudad(arreglo, ciudad, adaptador)
+                    }
+                }
+        }
     }
 
-    fun anadirArregloCiudad(
+    fun anadirAArregloCiudad(
         arregloNuevo: ArrayList<ICitiesDto>,
-        ciudad: QueryDocumentSnapshot
+        ciudad: QueryDocumentSnapshot,
+        adaptador: ArrayAdapter<ICitiesDto>
     ){
-        arregloNuevo.add(
-            ICitiesDto(
-                ciudad.get("name") as String?, ciudad.get("state") as String?,
-                ciudad.get("country") as String?, ciudad.get("capital") as Boolean?,
-                ciudad.get("population") as Integer?, ciudad.get("regions") as ArrayList<String>
-            )
+        val nuevaCiudad = ICitiesDto(
+            ciudad.data.get("name") as String?,
+            ciudad.data.get("state") as String?,
+            ciudad.data.get("country") as String?,
+            ciudad.data.get("capital") as Boolean?,
+            ciudad.data.get("population") as Long?,
+            ciudad.data.get("regions") as ArrayList<String>
         )
+        arregloNuevo.add(
+            nuevaCiudad
+        )
+        adaptador.notifyDataSetChanged()
     }
 
+    fun limpiarArreglo(){
+        arreglo.clear()
+    }
     fun crearDatosPrueba() {
         val db = Firebase.firestore
 
@@ -130,4 +159,79 @@ class IFirebaseFirestore : AppCompatActivity() {
         )
         cities.document("BJ").set(data5)
     }
+
+    /*
+        < menor que
+        <= menor o igual que
+        == igual que
+        > mayor que
+        >= mayor que o igual que
+        != no igual a
+        array-contains
+        array-contains-any
+        in
+        not-in
+
+        // Obtener solo un limite de registros
+        val db = Firebase.firestore
+            val citiesRef = db
+                .collection("cities")
+                .limit(2) // solo tomamos 2 registros
+
+        // Buscar por un solo campo ==
+        val citiesRef = db
+            .collection("cities")
+            .whereEqualTo("country", "China")
+            // para obener valores de mapas
+            // .whereEqualTo("propiedad.otraPropiedad", "Valor")
+            .get()
+        // se puede poner un order by si el resultado es un arreglo
+
+        // Buscar por un solo campo 'array-contains'
+        val citiesRef = db
+            .collection("cities")
+            .whereArrayContainsAny("regions", "west_cost")
+            .get()
+
+        // Buscar por dos o más elementos campo '==' 'array-contains'
+        citiesRef
+            .whereEqualTo("capital", false)
+            .whereArrayContainsAny("regions", arrayListOf("socal", "norcal"))
+
+        //Buscar por un solo campo '>='
+        val citiesRef = db
+            .collection("cities")
+            .whereGreaterThanOrEqualTo("population", 1000000)
+            .get()
+
+        // Buscar por dos o más elementos campo '==' '>='
+        citiesRef
+            .whereEqualTo("capital", true)
+            .whereGreaterThanOrEqualTo("population", 1000000)
+
+        //Buscar por un solo campo '<='
+        val citiesRef = db
+            .collection("cities")
+            .whereLessThanOrEqualTo("population", 1000000)
+            .get()
+
+        // Buscar por dos o más elementos campo '==' '<='
+        citiesRef
+            .whereEqualTo("capital", true)
+            .whereLessThanOrEqualTo("population", 1000000)
+
+        // Buscar por un solo campo 'array-contains-any'
+        val citiesRef = db
+            .collection("cities")
+            .whereArrayContainsAny("regions", listOf("west_coast", "east_coast"))
+            .get()
+
+        // Buscar por un solo campo 'in'
+        val citiesRef = db
+            .collection("cities")
+            .whereIn("country", listOf("USA", "Japan"))
+            .get()
+
+    */
+
 }

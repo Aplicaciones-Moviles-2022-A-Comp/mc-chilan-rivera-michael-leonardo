@@ -5,7 +5,7 @@ class ICitiesDto(
     var state: String?,
     var country: String?,
     var capital: Boolean?,
-    var population: Integer?,
+    var population: Long?,
     var regions: List<String>?
 ) {
     override fun toString(): String {
