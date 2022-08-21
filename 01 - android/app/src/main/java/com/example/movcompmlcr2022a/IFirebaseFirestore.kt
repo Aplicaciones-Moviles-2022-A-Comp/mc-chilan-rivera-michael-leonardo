@@ -5,14 +5,18 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
+import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
 import kotlin.collections.ArrayList
 
 class IFirebaseFirestore : AppCompatActivity() {
+
+    var query: Query? = null
 
     val arreglo: ArrayList<ICitiesDto> = arrayListOf()
 
@@ -130,6 +134,58 @@ class IFirebaseFirestore : AppCompatActivity() {
                 .delete()
                 .addOnCompleteListener { /* Si todo salio bien*/ }
                 .addOnFailureListener { /* Si algo salio mal*/ }
+        }
+        val botonFirebaseEmpezarPaginar = findViewById<Button>(R.id.btn_fs_epaginar)
+        botonFirebaseEmpezarPaginar.setOnClickListener {
+            query = null
+            consultarCiudades(adaptador)
+        }
+        val botonFirebasePaginar = findViewById<Button>(R.id.btn_fs_paginar)
+        botonFirebasePaginar.setOnClickListener {
+            consultarCiudades(adaptador)
+        }
+    }
+
+    fun consultarCiudades(
+        adaptador: ArrayAdapter<ICitiesDto>
+    ) {
+        val db = Firebase.firestore
+
+        val citiesRef = db
+            .collection("cities")
+            .orderBy("population")
+            .limit(1)
+
+        var tarea: Task<QuerySnapshot>? = null
+        if (query == null) {
+            tarea = citiesRef.get() // 1era vez
+            limpiarArreglo()
+            adaptador.notifyDataSetChanged()
+        } else {
+            tarea = query!!.get() // consulta de la consulta anterior empezando en el nuevo documento
+        }
+        if (tarea != null) {
+            tarea
+                .addOnSuccessListener { documentSnapshots ->
+                    guardarQuery(documentSnapshots, citiesRef)
+                    for (ciudad in documentSnapshots) {
+                        anadirAArregloCiudad(arreglo, ciudad, adaptador)
+                    }
+                    adaptador.notifyDataSetChanged()
+                }
+                .addOnFailureListener {
+                    // si hay fallos
+                }
+        }
+    }
+
+    fun guardarQuery(documentSnapshots: QuerySnapshot, refCities: Query) {
+        if (documentSnapshots.size() > 0) {
+            val ultimoDocumento = documentSnapshots.documents[documentSnapshots.size() - 1]
+            query = refCities
+                .startAfter(ultimoDocumento)
+        } else {
+
         }
     }
 

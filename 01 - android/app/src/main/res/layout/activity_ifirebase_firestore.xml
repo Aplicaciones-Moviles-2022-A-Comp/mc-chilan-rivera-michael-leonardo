@@ -33,10 +33,10 @@
         android:layout_height="282dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.499" />
 
     <Button
         android:id="@+id/btn_fs_odoc"
@@ -81,4 +81,25 @@
         app:layout_constraintStart_toEndOf="@+id/btn_fs_crear"
         app:layout_constraintTop_toTopOf="@+id/btn_fs_crear"
         app:layout_constraintVertical_bias="0.333" />
+
+    <Button
+        android:id="@+id/btn_fs_epaginar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Empezar Paginar"
+        app:layout_constraintEnd_toEndOf="@+id/btn_fs_ind_comp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_fs_ind_comp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_fs_ind_comp" />
+
+    <Button
+        android:id="@+id/btn_fs_paginar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:text="Paginar"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_fs_epaginar"
+        app:layout_constraintStart_toEndOf="@+id/btn_fs_epaginar"
+        app:layout_constraintTop_toTopOf="@+id/btn_fs_epaginar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
