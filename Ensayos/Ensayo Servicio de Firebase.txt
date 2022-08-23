@@ -1,0 +1,23 @@
+Authentication:  la mayoría de apps requiere la identidad del usuario para brindar una experiencia personalizada y proteger sus datos. Compatibilidad de con varias formas de autenticación. Cuando el usuario autentica:
+	1. La información del usuario se envía al dispositiv mediante devoluciones de llamada, permitiendo personalizar la experiencia en la aplicación para un usuario en específico.
+	2. La información del usuario tiene un ID único .
+	3. Firebase administra la sesión del usuario para que contiúe abierta
+Funciona en Android, iOS y Web
+
+App Check: La autenticación de Firebase permite determinar que un usuario es quien dice ser, y laa reglas de seguridad de Firebase permiten acceder a los datos según quién intente acceder.
+Acceso a recursos.- permiteel acceso a los recursos que las distintas aplicaciones intenten acceder permitiendo el acceso a los usuario a recursos en especifico según la aplicación que estén utilizando.
+
+Cloud Firestore: permite el almacenamiento de datos, trabajando con el formato Json permite que los datos se almacenen de manera jerárquica y que al momento de intentar acceder a ellos se acceda de manera rápida ya que Firebase utiliza los ID únicos para poder realizar las operaciones de un CRUD.
+
+Hosting: para páginas web progresivas, los navegadores ofrecen funciones y posibilidades como nunca lo han hecho. Diseñado para aplicaciones web front-end. Todos los sitios son publicados mediante conexiones seguras. Proporciona y configura automáticamente un certificado SSL para cada un de los sitios implementados.
+
+Cloud Messaging: permite el envío de mensajes a apps de usuarios en diversas plataformas. Se puede dirigir mensajes a dispositivos individuales, grupos o temas. 
+
+Performance: útil para cuando el tiempo de carga de una aplicación tarda demasiado en cargar, de esta manera se puede monitorizar en que partes de la aplicación se tienen retardos. útil para optimizar el rendimiento de una app, necesitando de métricas que muestren exactamente lo que pasa en momentos críticos del uso de la app.
+
+Test Lab: testear las aplicaciones en los distintos dispositivos usados por los usuarios, con el fin de asegurarse que funcione bien para todos. El testeo se lo puede realizar de manera automática, o se puede programar que funiones son las que debe probar el servicio.
+
+In-App Messaging: envía mensajes al público mientras usa la aplicación, esto con el fin de animar a los usuarios a completar acciones que son clave en la app, pueden servir como una guía hacia el usuario sobre la app, envío de promosiones, o de asegurarse que la app esté actualizada. 
+
+Conclusión: Firebase brinda muchos servicios con los cuales poder hacer crecer una app, de manera analítica, en su desarrollo, testing. Para poder tener una correcta autenticación entre los usuarios y que solo el tenga acceso a la actividad que realice dentro de la app, de esta manera puede tener un experiencia personalizada, para que así se le pueda brindar beneficios y promociones mediante mensajes emergentes. Firebase también cuenta con una base de datos que sirve de mucha ayuda cuando se requiere almacenar información del usuario. Finalmente, cuenta con el servicio de rendimiento de la app, con la cual se puede observar fallos en las situaciones críticas, en las cuales posteriormente con actualizaciones se las pueda optimizar de manera que la experiencia del usuario se la maejro y que siga utilizando la app. Además cuenta con el envío masivo de mensajes, con los cuales se espera hacer conocer a la aplicación para que más usuarios puedan utilizarla y brinde su retoalimentación, además de su experiencia en distintos dispositivos, realizando pruebas para que la app sea funcional en los distpositivos en los que se la utilice.
+
