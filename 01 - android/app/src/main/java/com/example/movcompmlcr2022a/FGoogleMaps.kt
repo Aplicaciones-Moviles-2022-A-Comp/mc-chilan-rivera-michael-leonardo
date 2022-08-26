@@ -23,6 +23,35 @@ class FGoogleMaps : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         solicitarPermisos()
+        iniciarLogicaMapa()
+    }
+
+    fun iniciarLogicaMapa() {
+        val fragmentoMapa = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        fragmentoMapa.getMapAsync { googleMap ->
+            if (googleMap != null) {
+                mapa = googleMap
+                establecerConfiguracionMapa()
+            }
+        }
+    }
+
+    fun establecerConfiguracionMapa() {
+        val contexto = this.applicationContext
+        with(mapa) {
+            val permisosFineLocation = ContextCompat
+                .checkSelfPermission(
+                    contexto,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION
+                )
+            val tienePermisos = permisosFineLocation == PackageManager.PERMISSION_GRANTED
+            if (tienePermisos) {
+                mapa.isMyLocationEnabled = true // no tenemos aun permisos
+            }
+            uiSettings.isZoomControlsEnabled = true
+            uiSettings.isMyLocationButtonEnabled = true // no tenemos permisos aun
+        }
     }
 
     fun solicitarPermisos() {
