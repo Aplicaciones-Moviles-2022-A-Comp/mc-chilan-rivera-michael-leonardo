@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="textView6" type="id" />
+    <item name="tv_fecha_nacimiento" type="id" />
+    <item name="textInputLayout16" type="id" />
+    <item name="til_fecha_nacimiento" type="id" />
+    <item name="tv_personaje_principal" type="id" />
+    <item name="textInputLayout17" type="id" />
+    <item name="til_personaje_principal" type="id" />
+    <item name="textInputLayout18" type="id" />
+    <item name="til_nombre" type="id" />
+    <item name="tv_edad" type="id" />
+    <item name="textInputLayout19" type="id" />
+    <item name="til_edad" type="id" />
+    <item name="tv_altura" type="id" />
+    <item name="textInputLayout20" type="id" />
+    <item name="til_altura" type="id" />
+    <item name="btn_actualizar_personaje" type="id" />
+    <item name="btn_cancelar_personaje" type="id" />
+    <item name="textView4" type="id" />
+    <item name="textInputLayout6" type="id" />
+    <item name="textInputLayout7" type="id" />
+    <item name="textInputLayout8" type="id" />
+    <item name="textInputLayout9" type="id" />
+    <item name="textInputLayout10" type="id" />
+</resources>
