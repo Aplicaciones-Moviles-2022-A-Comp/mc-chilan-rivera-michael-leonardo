@@ -15,7 +15,7 @@ class CrearPersonaje : AppCompatActivity() {
     var nextIdJP = 0
     var lastIdJP = 0
     var posicionJuego = 0
-    var idJuegoDueño = 0
+    var idJuegoDuenio = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Log.i("ciclo_vida", "onCreate")
@@ -44,13 +44,13 @@ class CrearPersonaje : AppCompatActivity() {
         BaseDeDatos.TablaJuego!!.listarJuegos().forEachIndexed{ indice: Int, juego : Juego ->
             //Log.i("testExamen", "${personaje.idPersonaje} -> ${personaje.nombre}")
             if (indice == posicionJuego) {
-                idJuegoDueño = juego.idJuego
+                idJuegoDuenio = juego.idJuego
             }
         }
 
-        var longitudListaPersonajes = BaseDeDatos.TablaJuego!!.listarJuegos().lastIndex
+        var longitudListaPersonajes = BaseDeDatos.TablaJuego!!.listarPersonajes().lastIndex
 
-        BaseDeDatos.TablaPersonaje!!.listarPersonajes().forEachIndexed{ indice: Int, personaje : Personaje ->
+        BaseDeDatos.TablaJuego!!.listarPersonajes().forEachIndexed{ indice: Int, personaje : Personaje ->
             Log.i("testExamen", "${personaje.idPersonaje} -> ${personaje.nombrePersonaje}")
             if (indice == longitudListaPersonajes) {
                 lastId = personaje.idPersonaje
@@ -82,9 +82,9 @@ class CrearPersonaje : AppCompatActivity() {
             var nombre = til_nombre.text.toString()
             var edadInicial = til_edadInicial.text.toString()
             var altura = til_altura.text.toString()
-            BaseDeDatosMemoria.arregloJuegoPersonaje.add(JuegoPersonaje(nextIdJP, nombre, idJuegoDueño, nextId))
+            BaseDeDatosMemoria.arregloJuegoPersonaje.add(JuegoPersonaje(nextIdJP, nombre, idJuegoDuenio, nextId))
                 //(nextId, fechaNacimiento, personajePrincipal, nombre, edadInicial, altura))
-            BaseDeDatos.TablaPersonaje!!.crearPersonaje(nextId, fechaNacimiento, personajePrincipal, nombre, edadInicial.toInt(), altura)
+            BaseDeDatos.TablaJuego!!.crearPersonaje(nextId, fechaNacimiento, personajePrincipal, nombre, edadInicial.toInt(), altura)
             devolverRespuesta()
         }
 

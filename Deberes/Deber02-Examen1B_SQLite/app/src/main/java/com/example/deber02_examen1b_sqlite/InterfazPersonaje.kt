@@ -18,8 +18,8 @@ class InterfazPersonaje : AppCompatActivity() {
     var posicionJuego = 0
     var selectedItem = 0
 
-    var personajeLista = arrayListOf<String>()
-    var idJuegoPersonaje = arrayListOf<Int>()
+    //var personajeLista = arrayListOf<String>()
+    //var idJuegoPersonaje = arrayListOf<Int>()
 
     var resultAddNewPersonaje = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -30,7 +30,6 @@ class InterfazPersonaje : AppCompatActivity() {
                 posicionJuego = data?.getIntExtra("posicionJuego",0)!!
             }
         }
-
     }
 
     var resultEditarPersonaje = registerForActivityResult(
@@ -42,7 +41,6 @@ class InterfazPersonaje : AppCompatActivity() {
                 posicionJuego = data?.getIntExtra("posicionJuegoAEditar",0)!!
             }
         }
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +57,7 @@ class InterfazPersonaje : AppCompatActivity() {
             }
         }
         var listaPersonajes = arrayListOf<Personaje>()
-        BaseDeDatos.TablaPersonaje!!.listarPersonajes()
+        BaseDeDatos.TablaJuego!!.listarPersonajes()
             .forEachIndexed { indice: Int, personaje: Personaje ->
                 for (i in listaIDPersonajes) {
                     if (i == personaje.idPersonaje) {
@@ -81,11 +79,11 @@ class InterfazPersonaje : AppCompatActivity() {
         val tvNombreJuegoPersonaje = findViewById<TextView>(R.id.tv_nombre_juego_personaje)
 
         BaseDeDatos.TablaJuego!!.listarJuegos().forEachIndexed{ indice: Int, juego : Juego ->
-            Log.i("testExamen","${juego.idJuego} -> ${juego.nombreJuego}")
+            //Log.i("testExamen","${juego.idJuego} -> ${juego.nombreJuego}")
             if (indice == posicionJuego){
-                idJuegoDueño = juego.idJuego
                 var label = "Juego: ${juego.nombreJuego}"
                 tvNombreJuegoPersonaje.setText(label)
+                idJuegoDueño = juego.idJuego
             }
         }
 
@@ -110,14 +108,29 @@ class InterfazPersonaje : AppCompatActivity() {
         btnAddPersonaje.setOnClickListener {
             abrirActividadAddPersonaje(CrearPersonaje::class.java)
         }
-
+/*
         val btnAtrasPersonaje = findViewById<Button>(R.id.btn_cancelar_personaje)
         btnAtrasPersonaje.setOnClickListener {
             val intentAtrasPersonaje = Intent(this, InterfazJuego::class.java)
             startActivity(intentAtrasPersonaje)
         }
-
+*/
         this.registerForContextMenu(listViewPersonaje)
+
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        val listViewPersonaje = findViewById<ListView>(R.id.lv_personajes)
+
+        val adaptador = ArrayAdapter(
+            this,
+            android.R.layout.simple_list_item_1,
+            listViewPersonajes()
+        )
+        listViewPersonaje.adapter = adaptador
+        adaptador.notifyDataSetChanged()
 
     }
 
@@ -132,7 +145,8 @@ class InterfazPersonaje : AppCompatActivity() {
         val info = menuInfo as AdapterView.AdapterContextMenuInfo
         val id = info.position
         selectedItem = id
-        idItemSeleccionado = idJuegoPersonaje.elementAt(id)
+        val idR=listViewPersonajes()[id].idPersonaje
+        idItemSeleccionado = idR//idJuegoPersonaje.elementAt(id)
         Log.i("id juegoPersonaje", "ID ${idItemSeleccionado}")
     }
 
@@ -145,7 +159,7 @@ class InterfazPersonaje : AppCompatActivity() {
             }
             R.id.mi_eliminar_personaje -> {
                 Log.i("context-menu", "Delete position: ${idItemSeleccionado}")
-                BaseDeDatos.TablaPersonaje!!.eliminarPersonaje(idItemSeleccionado)
+                BaseDeDatos.TablaJuego!!.eliminarPersonaje(idItemSeleccionado)
                 val listViewJugador = findViewById<ListView>(R.id.lv_personajes)
                 val adaptador = ArrayAdapter(
                     this,
@@ -173,11 +187,11 @@ class InterfazPersonaje : AppCompatActivity() {
         clase: Class<*>
     ) {
         val intentAddNewPersonaje = Intent(this, clase)
-        intentAddNewPersonaje.putExtra("posicionJuegp",posicionJuego)
+        intentAddNewPersonaje.putExtra("posicionJuego",posicionJuego)
         Log.i("positionSend","${posicionJuego}")
         resultAddNewPersonaje.launch(intentAddNewPersonaje)
     }
-
+/*
     fun eliminarPersonaje(
         idPersonajeAEliminar: Int
     ){
@@ -202,5 +216,5 @@ class InterfazPersonaje : AppCompatActivity() {
         )
         listViewPersonaje.adapter = adaptador
         adaptador.notifyDataSetChanged()
-    }
+    }*/
 }

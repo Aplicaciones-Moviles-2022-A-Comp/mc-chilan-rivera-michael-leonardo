@@ -77,7 +77,7 @@ class FGoogleMaps : AppCompatActivity() {
             Log.i("mapa", "setOnPolygonClickListener ${it}")
             it.tag // ID
         }
-        mapa.setOnPolygonClickListener {
+        mapa.setOnPolylineClickListener {
             Log.i("mapa", "setOnPolyLineClickListener ${it}")
             it.tag // ID
         }
@@ -86,9 +86,15 @@ class FGoogleMaps : AppCompatActivity() {
             it.tag // ID
                 return@setOnMarkerClickListener true
         }
-        mapa.setOnCameraMoveListener {  }
-        mapa.setOnCameraMoveStartedListener {  }
-        mapa.setOnCameraIdleListener {  }
+        mapa.setOnCameraMoveListener {
+            Log.i("mapa", "setOnCameraMoveListener")
+        }
+        mapa.setOnCameraMoveStartedListener {
+            Log.i("mapa", "setOnCameraMoveStartedListener ${it}")
+        }
+        mapa.setOnCameraIdleListener {
+            Log.i("mapa", "setOnCameraIdleListener")
+        }
     }
 
     fun establecerConfiguracionMapa() {

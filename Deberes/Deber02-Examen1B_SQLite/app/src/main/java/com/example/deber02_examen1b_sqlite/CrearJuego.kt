@@ -25,30 +25,30 @@ class CrearJuego : AppCompatActivity() {
         super.onStart()
         Log.i("ciclo-vida", "onStart")
 
-        var longitudListaJuego = BaseDeDatosMemoria.arregloJuego.lastIndex
+        var longitudListaJuego = BaseDeDatos.TablaJuego!!.listarJuegos().lastIndex
 
-        BaseDeDatosMemoria.arregloJuego.forEachIndexed{ indice: Int, juego : Juego ->
-            Log.i("testExamen", "${juego.idJuego} -> ${juego.nombre}")
+        BaseDeDatos.TablaJuego!!.listarJuegos().forEachIndexed{ indice: Int, juego : Juego ->
+            Log.i("testExamen", "${juego.idJuego} -> ${juego.nombreJuego}")
             if (indice == longitudListaJuego){
                 lastId = juego.idJuego
             }
         }
         nextId = lastId + 1
 
-        var til_fechaLanzamiento = findViewById<TextInputEditText>(R.id.til_fecha_lanzamiento)
-        var til_aptoTodoPublico = findViewById<TextInputEditText>(R.id.til_apto_todo_publico)
-        var til_nombre = findViewById<TextInputEditText>(R.id.til_nombre)
-        var til_horasJuegoHistoria = findViewById<TextInputEditText>(R.id.til_horas_juego)
-        var til_precio = findViewById<TextInputEditText>(R.id.til_precio)
+        var tilFechaLanzamiento = findViewById<TextInputEditText>(R.id.til_fecha_lanzamiento)
+        var tilAptoTodoPublico = findViewById<TextInputEditText>(R.id.til_apto_todo_publico)
+        var tilNombreJuego = findViewById<TextInputEditText>(R.id.til_nombre_juego)
+        var tilHorasJuegoHistoria = findViewById<TextInputEditText>(R.id.til_horas_juego)
+        var tilPrecio = findViewById<TextInputEditText>(R.id.til_precio)
 
-        var btnAñadirJuego = findViewById<Button>(R.id.btn_actualizar_juego)
+        var btnAñadirJuego = findViewById<Button>(R.id.btn_crear_juego)
         btnAñadirJuego.setOnClickListener {
-            fechaLanzamiento = til_fechaLanzamiento.text.toString()
-            aptoTodoPublico = til_aptoTodoPublico.text.toString()
-            nombre = til_nombre.text.toString()
-            horasJuegoHistoria = til_horasJuegoHistoria.text.toString()
-            precio = til_precio.text.toString()
-            BaseDeDatosMemoria.arregloJuego.add(Juego(nextId, fechaLanzamiento, aptoTodoPublico, nombre, horasJuegoHistoria, precio))
+            fechaLanzamiento = tilFechaLanzamiento.text.toString()
+            aptoTodoPublico = tilAptoTodoPublico.text.toString()
+            nombre = tilNombreJuego.text.toString()
+            horasJuegoHistoria = tilHorasJuegoHistoria.text.toString()
+            precio = tilPrecio.text.toString()
+            BaseDeDatos.TablaJuego!!.crearJuego(nextId, fechaLanzamiento, aptoTodoPublico, nombre, horasJuegoHistoria.toInt(), precio)
             val intentAddSuccess = Intent(this, InterfazJuego::class.java)
             startActivity(intentAddSuccess)
         }

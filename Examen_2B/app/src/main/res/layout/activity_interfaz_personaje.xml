@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Juego">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="600px"
+        android:layout_height="120px"
+        android:layout_marginTop="30dp"
+        android:text="LISTA DE PERSONAJES"
+        android:textColor="#000000"
+        android:textSize="3mm"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.083" />
+
+    <Button
+        android:id="@+id/btn_crear_personaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CREAR PERSONAJE"
+        app:layout_constraintEnd_toEndOf="@+id/tv_nombre_juego_personaje"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_nombre_juego_personaje"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombre_juego_personaje" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="268dp"
+        android:layout_height="244dp"
+        android:layout_marginTop="44dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@+id/btn_crear_personaje"
+        app:layout_constraintHorizontal_bias="0.89"
+        app:layout_constraintStart_toStartOf="@+id/btn_crear_personaje"
+        app:layout_constraintTop_toBottomOf="@+id/btn_crear_personaje">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/lv_personajes"
+                android:layout_width="match_parent"
+                android:layout_height="242dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tv_nombre_juego_personaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Juego: "
+        android:textColor="#1C1515"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.278"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

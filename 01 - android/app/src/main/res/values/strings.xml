@@ -20,6 +20,6 @@
         <item>Martes</item>
         <item>Miercoles</item>
     </string-array>
-    <string name="title_activity_mapas">Mapas</string>
-    <string name="title_activity_fgoogle_maps">FGoogleMaps</string>
+    <string name="title_activity_mapas" translatable="false">Mapas</string>
+    <string name="title_activity_fgoogle_maps" translatable="false">FGoogleMaps</string>
 </resources>
