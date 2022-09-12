@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.vd.movies.ui.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/layoutMotion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/_4sdp"
+        app:layoutDescription="@xml/fragment_home_scene"
+        tools:context=".ui.home.HomeFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/svRecent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/outerLayoutSearch">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    android:id="@+id/layoutFavoriteList"
+                    layout="@layout/layout_recents_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/homeListingSize"
+                    android:layout_marginTop="@dimen/homeListingMargin"
+                    app:layout_constraintBottom_toTopOf="@id/layoutWatchlist"
+                    app:layout_constraintTop_toTopOf="parent"
+                    bind:isDataAvailable="@{viewModel.favsDataAvailable}"
+                    bind:title="@{@string/favorites}" />
+
+                <include
+                    android:id="@+id/layoutWatchlist"
+                    layout="@layout/layout_recents_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/homeListingSize"
+                    android:layout_marginTop="@dimen/homeListingMargin"
+                    app:layout_constraintBottom_toTopOf="@id/layoutWatchedList"
+                    app:layout_constraintTop_toBottomOf="@id/layoutFavoriteList"
+                    bind:isDataAvailable="@{viewModel.watchlistDataAvailable}"
+                    bind:title="@{@string/watchlist}" />
+
+                <include
+                    android:id="@+id/layoutWatchedList"
+                    layout="@layout/layout_recents_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/homeListingSize"
+                    android:layout_marginTop="@dimen/homeListingMargin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/layoutWatchlist"
+                    bind:isDataAvailable="@{viewModel.watchedListDataAvailable}"
+                    bind:title="@{@string/watched}" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+        <RelativeLayout
+            android:id="@+id/outerLayoutSearch"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_32sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="5dp" />
+
+        <include
+            android:id="@+id/layoutSearch"
+            layout="@layout/layout_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/outerLayoutSearch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/outerLayoutSearch"
+            bind:searchKey="@={viewModel.searchKey}" />
+
+        <ImageView
+            android:id="@+id/ivUp"
+            android:layout_width="24dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:rotation="180"
+            android:src="@drawable/ic_up_circle"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/outerLayoutSearch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <ImageView
+            android:id="@+id/ivCircle"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:src="@drawable/circle"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="parent" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>
